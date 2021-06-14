@@ -1,16 +1,18 @@
 import { FormEvent, useState } from "react";
+import { SearchResults } from '../components/searchResults'
 
 export default function Home(): JSX.Element {
   const [search, setSearch] = useState('');
-
-  function handleSearch(e: FormEvent) {
+  const [results, setResults] = useState([]);
+  async function handleSearch(e: FormEvent) {
     e.preventDefault();
-
     if (!search.trim()) {
       return;
     }
 
-
+    const response = await fetch(`http://localhost:3333/products?q=${search}`);
+    const data = await response.json();
+    setResults(data);
   }
 
   return (
@@ -24,6 +26,8 @@ export default function Home(): JSX.Element {
           onChange={e => setSearch(e.target.value)}
         />
         <button type="submit">Buscar</button>
+
+        <SearchResults results={results} />
       </form>
     </div>
   )
