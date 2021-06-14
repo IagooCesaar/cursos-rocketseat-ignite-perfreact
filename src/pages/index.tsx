@@ -6,6 +6,11 @@ export default function Home(): JSX.Element {
   function handleSearch(e: FormEvent) {
     e.preventDefault();
 
+    if (!search.trim()) {
+      return;
+    }
+
+
   }
 
   return (
