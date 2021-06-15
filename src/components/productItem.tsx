@@ -1,5 +1,13 @@
 import React, { memo, useState } from 'react'
-import { AddProductToWishList } from './addProductToWishList';
+import dynamic from 'next/dynamic'; // ou lazy do react
+import { AddProductToWishListProps } from './addProductToWishList';
+// import { AddProductToWishList } from './addProductToWishList';
+
+const AddProductToWishList = dynamic<AddProductToWishListProps>(() => {
+  return import('./addProductToWishList')
+    //Se o component fosse `export default` não precisaria do .then a seguir
+    .then(mod => mod.AddProductToWishList)
+})
 
 interface ProductItemProps {
   product: {
