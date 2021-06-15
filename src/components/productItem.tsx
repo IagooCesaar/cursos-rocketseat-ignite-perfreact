@@ -8,10 +8,12 @@ interface ProductItemProps {
   }
 }
 
-export const ProductItem = memo(({ product }: ProductItemProps) => {
+function ProductItemComponent({ product }: ProductItemProps) {
   return (
     <div>
       {product.title} - <strong>{product.price}</strong>
     </div>
   )
-})
+}
+
+export const ProductItem = memo(ProductItemComponent);
