@@ -31,7 +31,7 @@ export default function Home(): JSX.Element {
         />
         <button type="submit">Buscar</button>
 
-        <SearchResults results={results} />
+        <SearchResults results={results} onAddToWishList={addToWishList} />
       </form>
     </div>
   )
