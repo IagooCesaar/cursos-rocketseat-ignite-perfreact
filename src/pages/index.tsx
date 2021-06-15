@@ -23,8 +23,20 @@ export default function Home(): JSX.Element {
     const totalPrice = data.reduce((acc, product) => {
       return acc + product.price;
     }, 0);
+    const formatter = new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    });
+    const products = data.map(product => {
+      return {
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        priceFormatted: formatter.format(product.price)
+      }
+    })
     setResults({
-      data,
+      data: products,
       totalPrice
     });
   }
