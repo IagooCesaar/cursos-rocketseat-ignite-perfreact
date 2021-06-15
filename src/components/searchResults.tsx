@@ -23,7 +23,11 @@ export function SearchResults({ results, onAddToWishList }: SearchResultsProps) 
       <h2>Total: {totalPrice}</h2>
       {results.map(product => {
         return (
-          <ProductItem product={product} onAddToWishList={onAddToWishList} />
+          <ProductItem
+            key={product.id}
+            product={product}
+            onAddToWishList={onAddToWishList}
+          />
         )
       })}
     </div>
