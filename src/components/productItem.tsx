@@ -7,6 +7,8 @@ const AddProductToWishList = dynamic<AddProductToWishListProps>(() => {
   return import('./addProductToWishList')
     //Se o component fosse `export default` não precisaria do .then a seguir
     .then(mod => mod.AddProductToWishList)
+}, {
+  loading: () => <span>Carregando...</span>
 })
 
 interface ProductItemProps {
