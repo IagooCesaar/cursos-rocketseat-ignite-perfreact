@@ -15,6 +15,10 @@ export default function Home(): JSX.Element {
     setResults(data);
   }
 
+  async function addToWishList(id: number) {
+    console.log(id);
+  }
+
   return (
     <div>
       <h1>Search</h1>
