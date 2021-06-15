@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useCallback, useState } from "react";
 import { SearchResults } from '../components/searchResults'
 
 export default function Home(): JSX.Element {
@@ -15,9 +15,9 @@ export default function Home(): JSX.Element {
     setResults(data);
   }
 
-  async function addToWishList(id: number) {
+  const addToWishList = useCallback(async (id: number) => {
     console.log(id);
-  }
+  }, []);
 
   return (
     <div>
